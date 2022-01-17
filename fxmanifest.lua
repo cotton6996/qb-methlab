@@ -13,13 +13,13 @@ description 'qb-methlab'
 server_scripts {
 	
 	'config.lua',
-	'server/meth.lua'
+	'meth-s.lua'
 }
 
 client_scripts {
 
 	'config.lua',
-	'client/meth.lua'
+	'meth-c.lua'
 }
 
 lua54 'yes'
