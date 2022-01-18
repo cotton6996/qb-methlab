@@ -1,10 +1,4 @@
-------CODERC-SLO----------
-----DRUG METH------------
-
-
 Config = {}
-
-Config.Token = 'LoreNN Was Here.'
 
 Config.Locale = 'en'
 
@@ -36,5 +30,3 @@ Config.CircleZones = {
 	WeedProcessing3 = {coords = vector3(-50.22, 6366.41, 29.28), name = 'blip_weedprocessing', color = 25, sprite = 496, radius = 100.0},
 	DrugDealer = {coords = vector3(213.86, -148.74, 58.81), name = 'blip_drugdealer', color = 6, sprite = 378, radius = 25.0},
 }
-
-----------the sodium coordinates are in the client file COORD CRAFT SODIUM
