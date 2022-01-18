@@ -225,8 +225,8 @@ function SpawnWeedPlants2d() --This spawns in the Weed plants,
 	while spawnedWeed < 25 do
 		Wait(1)
 		local weedCoords = GenerateWeedCoords2()
---prop_barrel_01a  prop_plant_01a
-		QBCore.Functions.CreateObject('prop_barrel_02b', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
+
+		local obj = CreateObject("prop_rad_waste_barrel_02b", weedCoords, true, true, true) --- change this prop to whatever plant you are trying to use 
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 			
@@ -238,15 +238,16 @@ function SpawnWeedPlants2d() --This spawns in the Weed plants,
 	Wait(45 * 60000)
 end
 
+--prop_barrel_01a  prop_plant_01a
+
 --second spown
 function SpawnWeedPlants2dm() --This spawns in the Weed plants, 
 	while spawnedWeed2 < 25 do
 		Wait(1)
 		local weedCoords = GenerateWeedCoords2m()
---prop_barrel_01a  prop_plant_01a
-		QBCore.Functions.CreateObject('prop_rad_waste_barrel_01', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
-			PlaceObjectOnGroundProperly(obj)
-			FreezeEntityPosition(obj, true)
+		local obj = CreateObject("prop_rad_waste_barrel_01", weedCoords, true, true, true)
+        	PlaceObjectOnGroundProperly(obj)
+            FreezeEntityPosition(obj, true)
 			
 
 			table.insert(weedPlants2, obj)
