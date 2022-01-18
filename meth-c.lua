@@ -222,19 +222,17 @@ AddEventHandler('onResourceStop', function(resource) --weedPlants
 	end
 end)
 function SpawnWeedPlants2d() --This spawns in the Weed plants, 
-	while spawnedWeed < 25 do
-		Wait(1)
-		local weedCoords = GenerateWeedCoords2()
+	while spawnedWeed2 < 25 do
+        Wait(1)
+        local weedCoords = GenerateWeedCoords2m()
+        local obj = CreateObject("prop_rad_waste_barrel_02b", weedCoords, true, true, true)
+        PlaceObjectOnGroundProperly(obj)
+            FreezeEntityPosition(obj, true)
+            
 
-		local obj = CreateObject("prop_rad_waste_barrel_02b", weedCoords, true, true, true) --- change this prop to whatever plant you are trying to use 
-			PlaceObjectOnGroundProperly(obj)
-			FreezeEntityPosition(obj, true)
-			
-
-			table.insert(weedPlants, obj)
-			spawnedWeed = spawnedWeed + 1
-		end)
-	end
+            table.insert(weedPlants2, obj)
+            spawnedWeed2 = spawnedWeed2 + 1
+    end
 	Wait(45 * 60000)
 end
 
@@ -243,18 +241,17 @@ end
 --second spown
 function SpawnWeedPlants2dm() --This spawns in the Weed plants, 
 	while spawnedWeed2 < 25 do
-		Wait(1)
-		local weedCoords = GenerateWeedCoords2m()
-		local obj = CreateObject("prop_rad_waste_barrel_01", weedCoords, true, true, true)
-        	PlaceObjectOnGroundProperly(obj)
+        Wait(1)
+        local weedCoords = GenerateWeedCoords2m()
+        local obj = CreateObject("prop_rad_waste_barrel_01", weedCoords, true, true, true)
+        PlaceObjectOnGroundProperly(obj)
             FreezeEntityPosition(obj, true)
-			
+            
 
-			table.insert(weedPlants2, obj)
-			spawnedWeed2 = spawnedWeed2 + 1
-		end)
-	end
-	Wait(45 * 60000)
+            table.insert(weedPlants2, obj)
+            spawnedWeed2 = spawnedWeed2 + 1
+    end
+    Wait(45 * 60000)
 end
 
 
