@@ -6,6 +6,15 @@ Do not repost with permission.
 
 Contact 90zPeaky#1990 if you have any problems.
 
+This resource is getting updated often so don't be afraid to dm me if you ever need help with anything releated to the resource.
+
+Installation Manual:
+Simply download the resource and put the folder into your [qb].
+
+Put the items under into your /qb-core/shared.lua - /qb-core/shared/items.lua.
+
+And there your all good to go, I recommend setting your own locations in the config.lua.
+
 ```
 ["blue_meth"]                      = {["name"] = "blue_meth",                         ["label"] = "blue_meth",                 ["weight"] = 0,         ["type"] = "item",         ["image"] = "blue_meth.png",             ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To get happy real fast."},
 
