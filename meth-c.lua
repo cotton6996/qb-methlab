@@ -226,7 +226,7 @@ function SpawnWeedPlants2d() --This spawns in the Weed plants,
 		Wait(1)
 		local weedCoords = GenerateWeedCoords2()
 --prop_barrel_01a  prop_plant_01a
-		QBCore.Functions.SpawnLocalObject('prop_barrel_02b', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
+		QBCore.Functions.CreateObject('prop_barrel_02b', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 			
@@ -244,7 +244,7 @@ function SpawnWeedPlants2dm() --This spawns in the Weed plants,
 		Wait(1)
 		local weedCoords = GenerateWeedCoords2m()
 --prop_barrel_01a  prop_plant_01a
-		QBCore.Functions.SpawnLocalObject('prop_rad_waste_barrel_01', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
+		QBCore.Functions.CreateObject('prop_rad_waste_barrel_01', weedCoords, function(obj) --- change this prop to whatever plant you are trying to use 
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 			
