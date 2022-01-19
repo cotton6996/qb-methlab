@@ -20,7 +20,7 @@ And there your all good to go, I recommend setting your own locations in the con
 
 ["hydrochloric.png"]              = {["name"] = "hydrochloric.png",                   ["label"] = "hydrochloric.png",         ["weight"] = 0,         ["type"] = "item",         ["image"] = "hydrochloric.png",         ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To get happy real fast."},
 
-["hydrochloric_bottle"]          = {["name"] = "weed_bag",                         ["label"] = "hydrochloric_bottle.png",     ["weight"] = 0,         ["type"] = "item",         ["image"] = "hydrochloric_bottle.png",  ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To get happy real fast."},
+["hydrochloric_bottle"]          = {["name"] = "hydrochloric_bottle",                         ["label"] = "hydrochloric_bottle.png",     ["weight"] = 0,         ["type"] = "item",         ["image"] = "hydrochloric_bottle.png",  ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To get happy real fast."},
 
 ["sodiumhydroxide"]              = {["name"] = "sodiumhydroxide",                   ["label"] = "sodiumhydroxide",             ["weight"] = 0,         ["type"] = "item",         ["image"] = "sodiumhydroxide.png",         ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "To get happy real fast."},
 
