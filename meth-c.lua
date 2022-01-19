@@ -908,7 +908,7 @@ function procOn()
     local count = 0
     ----
     if(count == 0) then
-    QBCore.Functions.Progressbar("search_register", "Pikup sodium hydroxide", 5000, false, true, {disableMovement = true,
+    QBCore.Functions.Progressbar("search_register", "Pickup sodium hydroxide", 5000, false, true, {disableMovement = true,
                         disableCarMovement = true,
                         disableMouse = false,
                         disableCombat = true,
