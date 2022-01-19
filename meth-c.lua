@@ -387,7 +387,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 
 			
 			if not isProcessing then
-				QBCore.Functions.DrawText3D(Config.CircleZones.WeedProcessing.coords.x, Config.CircleZones.WeedProcessing.coords.y, Config.CircleZones.WeedProcessing.coords.z, 'Press ~g~[ E ]~w~ to Process Meth')
+				QBCore.Function.DrawText3D(Config.CircleZones.WeedProcessing.coords.x, Config.CircleZones.WeedProcessing.coords.y, Config.CircleZones.WeedProcessing.coords.z, 'Press ~g~[ E ]~w~ to Process Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing then
@@ -437,7 +437,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 	end
 end)
 
---paleto Goykz
+--paleto
 
 CreateThread(function() --- check that makes sure you have the materials needed to process
 	while true do
@@ -450,7 +450,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 
 			
 			if not isProcessing then
-				QBCore.Functions.DrawText3D(Config.CircleZones.WeedProcessing2.coords.x, Config.CircleZones.WeedProcessing2.coords.y, Config.CircleZones.WeedProcessing2.coords.z, 'Press ~g~[ E ]~w~ to Process Meth')
+				DrawText3D(Config.CircleZones.WeedProcessing2.coords.x, Config.CircleZones.WeedProcessing2.coords.y, Config.CircleZones.WeedProcessing2.coords.z, 'Press ~g~[ E ]~w~ to Process Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing then
@@ -512,7 +512,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 
 			
 			if not isProcessing3 then
-				QBCore.Functions.DrawText3D(Config.CircleZones.WeedProcessing3.coords.x, Config.CircleZones.WeedProcessing3.coords.y, Config.CircleZones.WeedProcessing3.coords.z, 'Press ~g~[ E ]~w~ to Package Meth')
+				DrawText3D(Config.CircleZones.WeedProcessing3.coords.x, Config.CircleZones.WeedProcessing3.coords.y, Config.CircleZones.WeedProcessing3.coords.z, 'Press ~g~[ E ]~w~ to Package Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing3 then
@@ -738,7 +738,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 
 			
 			if not isProcessing2 then
-				QBCore.Functions.DrawText3D(Config.CircleZones.DrugDealer.coords.x, Config.CircleZones.DrugDealer.coords.y, Config.CircleZones.DrugDealer.coords.z, 'Press ~g~[ E ]~w~ to Sell Meth')
+				DrawText3D(Config.CircleZones.DrugDealer.coords.x, Config.CircleZones.DrugDealer.coords.y, Config.CircleZones.DrugDealer.coords.z, 'Press ~g~[ E ]~w~ to Sell Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing2 then
@@ -827,11 +827,11 @@ function SellDrug3()  -- simple animations to loop while process is taking place
 end
 
 
------------------------------------------------PROCESS CRAFT SODIUM-----------------------------------------------
+
 CreateThread(function()
     while true do
         Wait(0)
-        -----------------------------------------------LOCAL------------------------------------------------------
+        --Local
 
         local plyCoords = GetEntityCoords(PlayerPedId(), false)
         ---local distanza marker 1----------------------
@@ -849,8 +849,6 @@ CreateThread(function()
             --DrawMarker(20, sellX4, sellY4, sellZ4 + 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.7, 0.2, 0.2, 15, 255, 55, 255, true, false, false, true, false, false, false)
         end
             
-        -------------------------------------------fine marker pavimento-----------------------------------------
-        --####################################################################################################---
 
         --Inputs marker 1
         if dist <= 3.0 then
