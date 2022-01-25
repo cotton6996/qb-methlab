@@ -30,3 +30,6 @@ Config.CircleZones = {
 	WeedProcessing3 = {coords = vector3(-50.22, 6366.41, 29.28), name = 'blip_weedprocessing', color = 25, sprite = 496, radius = 100.0},
 	DrugDealer = {coords = vector3(213.86, -148.74, 58.81), name = 'blip_drugdealer', color = 6, sprite = 378, radius = 25.0},
 }
+
+
+--Building Location: 158.838 3134.578 43.495

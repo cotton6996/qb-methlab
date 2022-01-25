@@ -8,16 +8,14 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-description 'qb-methlab'
+description 'Free qbcore methlab with buildings'
 
 server_scripts {
-	
 	'config.lua',
 	'meth-s.lua'
 }
 
 client_scripts {
-
 	'config.lua',
 	'meth-c.lua'
 }
