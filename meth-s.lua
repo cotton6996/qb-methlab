@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject() 
 
-RegisterServerEvent('xd_drugs:metacid', function() --hero
+RegisterServerEvent('drugs:metacid', function() --hero
 
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
@@ -12,13 +12,14 @@ RegisterServerEvent('xd_drugs:metacid', function() --hero
 		  TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['hydrochloric_bottle'], "remove")
 	    end
 end)
+
 -- pickup sulfuric
-RegisterServerEvent('xd_drugs:metasodium', function()
+RegisterServerEvent('drugs:metasodium', function()
 
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 
-	    if 	TriggerClientEvent("QBCore:Notify", src, "Picked up sulfuricacid!!", "Success", 8000) then
+	    if 	TriggerClientEvent("QBCore:Notify", src, "Picked up sulfuricacid!", "Success", 8000) then
 		  Player.Functions.AddItem('sulfuricacid', 1) ---- 
 		  Player.Functions.RemoveItem('sulfuricacid_bottle', 1)----
 		  TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['sulfuricacid'], "add")
@@ -63,7 +64,7 @@ RegisterServerEvent('craft:sodium', function()
 
 end)
 
-RegisterServerEvent('xd_drugs_weed:metprocess', function()
+RegisterServerEvent('drugs:metprocess', function()
 
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
@@ -87,7 +88,7 @@ RegisterServerEvent('xd_drugs_weed:metprocess', function()
 
 end)
 
-RegisterServerEvent('xd_drugs_weed:metprocess2', function()
+RegisterServerEvent('drugs:metprocess2', function()
 
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
@@ -109,7 +110,7 @@ end)
 
 --Selling the drugs
 
-RegisterServerEvent('xd_drugs_weed:sellmeth', function()
+RegisterServerEvent('drugs:sellmeth', function()
 
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
@@ -122,7 +123,7 @@ RegisterServerEvent('xd_drugs_weed:sellmeth', function()
 	    if Player.Functions.GetItemByName('blue_meth') then
 		local chance2 = math.random(1, 8)
 		if chance2 == 1 or chance2 == 2 or chance2 == 3 or chance2 == 4 or chance2 == 5 or chance2 == 6 or chance2 == 7 or chance2 == 8 then
-			Player.Functions.RemoveItem('blue_meth', 1)---Change this if you want to
+			Player.Functions.RemoveItem('blue_meth', 1)
 			TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['blue_meth'], "remove")
 			Player.Functions.AddMoney('cash', 15000, "sold-pawn-items")
 
@@ -150,7 +151,7 @@ function CancelProcessing(playerId)
 	end
 end
 
-RegisterServerEvent('xd_drugs_weed:cancelProcmet', function()
+RegisterServerEvent('drugs:cancelProcmet', function()
 
 	CancelProcessing(source)
 end)
@@ -159,7 +160,7 @@ AddEventHandler('QBCore_:playerDropped', function(playerId, reason)
 	CancelProcessing(playerId)
 end)
 
-RegisterServerEvent('xd_drugs_weed:onPlayerDeath2d', function(data)
+RegisterServerEvent('drugs:onPlayerDeath2d', function(data)
 
 	local src = source
 	CancelProcessing(src)

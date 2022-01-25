@@ -1,5 +1,35 @@
 local QBCore = exports['qb-core']:GetCoreObject() 
 
+local function DrawText3D(x, y, z, text)
+    SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
+    local factor = (string.len(text)) / 370
+    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
+end
+
+local function DrawText3D2(x, y, z, text)
+	SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
+    local factor = (string.len(text)) / 370
+    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
+end
+
 local Keys = {
 	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57, 
 	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177, 
@@ -61,7 +91,7 @@ function CheckCoords2()
 		end
 	end)
 end
--------Second Spawn Location
+--Second Spawn Location
 function CheckCoords2m()
 	CreateThread(function()
 		while true do
@@ -99,7 +129,7 @@ CreateThread(function()--Meth
 		if nearbyObject and IsPedOnFoot(playerPed) then
 
 			if not isPickingUp then
-				QBCore.Functions.Draw2DText(0.5, 0.88, 'Press ~g~[E]~w~ to pickup Hydrocloric acid', 0.5)
+				DrawText3D(0.5, 0.88, 'Press ~g~[E]~w~ to pickup Hydrocloric acid', 0.5)
 			end
 			local hasBagd = false
 			local s1d = false
@@ -130,7 +160,7 @@ CreateThread(function()--Meth
 					table.remove(weedPlants, nearbyID)
 					spawnedWeed = spawnedWeed - 1
 
-					TriggerServerEvent('xd_drugs:metacid')
+					TriggerServerEvent('drugs:metacid')
 				end, function()
 					ClearPedTasks(PlayerPedId())
 				end) -- Cancel
@@ -145,7 +175,7 @@ CreateThread(function()--Meth
 		end
 	end
 end)
-CreateThread(function()--weed
+CreateThread(function()
 	while true do
 		Wait(0)
 
@@ -194,7 +224,7 @@ CreateThread(function()--weed
 					table.remove(weedPlants2, nearbyID)
 					spawnedWeed2 = spawnedWeed2 - 1
 
-					TriggerServerEvent('xd_drugs:metasodium')
+					TriggerServerEvent('drugs:metasodium')
 				end, function()
 					ClearPedTasks(PlayerPedId())
 				end) -- Cancel
@@ -373,7 +403,7 @@ function GetCoordZWeed2(x, y)
 	return 22.85
 end
 
-CreateThread(function() --- check that makes sure you have the materials needed to process
+CreateThread(function() --Check that makes sure you have the materials needed to process
 	while QBCore == nil do
 		Wait(200)
 	end
@@ -383,11 +413,11 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 		local coords = GetEntityCoords(playerPed)
 
 		if GetDistanceBetweenCoords(coords, Config.CircleZones.WeedProcessing.coords, true) < 1 then
-			DrawMarker(20, Config.CircleZones.WeedProcessing.coords.x, Config.CircleZones.WeedProcessing.coords.y, Config.CircleZones.WeedProcessing.coords.z - 0.66 , 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 255, 255, 255, 100, 0, 0, 0, true, 0, 0, 0)
+			DrawMarker(27, Config.CircleZones.WeedProcessing.coords.x, Config.CircleZones.WeedProcessing.coords.y, Config.CircleZones.WeedProcessing.coords.z - 0.66 , 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 255, 255, 255, 100, 0, 0, 0, true, 0, 0, 0)
 
 			
 			if not isProcessing then
-				QBCore.Function.DrawText3D(Config.CircleZones.WeedProcessing.coords.x, Config.CircleZones.WeedProcessing.coords.y, Config.CircleZones.WeedProcessing.coords.z, 'Press ~g~[ E ]~w~ to Process Meth')
+				DrawText3D(Config.CircleZones.WeedProcessing.coords, Config.CircleZones.WeedProcessing.coords, Config.CircleZones.WeedProcessing.coords, 'Press ~g~[ E ]~w~ to Process Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing then
@@ -501,7 +531,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 end)
 
 --paleto 2
-CreateThread(function() --- check that makes sure you have the materials needed to process
+CreateThread(function() -- check that makes sure you have the materials needed to process
 	while true do
 		Wait(0)
 		local playerPed = PlayerPedId()
@@ -545,7 +575,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 					Processweed3d2()
 				
 				else
-					QBCore.Functions.Notify('you must have blue_meth', 'error')
+					QBCore.Functions.Notify('you must have any blue meth', 'error')
 				end
 			end
 		else
@@ -561,8 +591,7 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 	isProcessing = true
 	local playerPed = PlayerPedId()
 
-	
-	--
+
 	--TaskStartScenarioInPlace(playerPed, "CODE_HUMAN_MEDIC_TEND_TO_DEAD", 0, true)
 	--SetEntityHeading(PlayerPedId(), 108.06254)
 	local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.9, -0.98))
@@ -585,7 +614,7 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 	LoadDict('amb@medic@standing@tendtodead@exit')
 	TaskPlayAnim(PlayerPedId(), 'amb@medic@standing@tendtodead@exit', 'exit', 8.0, -8.0, -1, 1, 0.0, 0, 0, 0)
          
-	    TriggerServerEvent('xd_drugs_weed:metprocess') -- Done
+	    TriggerServerEvent('drugs:metprocess') -- Done
 
 		local timeLeft = Config.Delays.WeedProcessing / 30000
 
@@ -594,7 +623,7 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 			timeLeft = timeLeft - 1
 
 			if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.WeedProcessing.coords, false) > 4 then
-				TriggerServerEvent('xd_drugs_weed:cancelProcmet')
+				TriggerServerEvent('drugs:cancelProcmet')
 				break
 			end
 		end
@@ -612,14 +641,12 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 	
 end
 
--- paleto goykz 
+--Paleto 
 
 function Processweed3d()  -- simple animations to loop while process is taking place
 	isProcessing = true
 	local playerPed = PlayerPedId()
 
-	
-	--
 	--TaskStartScenarioInPlace(playerPed, "CODE_HUMAN_MEDIC_TEND_TO_DEAD", 0, true)
 	--SetEntityHeading(PlayerPedId(), 108.06254)
 	--local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.9, -0.98))
@@ -642,7 +669,7 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 	--LoadDict('amb@medic@standing@tendtodead@exit')
 	--TaskPlayAnim(PlayerPedId(), 'amb@medic@standing@tendtodead@exit', 'exit', 8.0, -8.0, -1, 1, 0.0, 0, 0, 0)
          
-	    TriggerServerEvent('xd_drugs_weed:metprocess') -- Done
+	    TriggerServerEvent('drugs:metprocess') -- Done
 
 		local timeLeft = Config.Delays.WeedProcessing2 / 30000
 
@@ -651,7 +678,7 @@ function Processweed3d()  -- simple animations to loop while process is taking p
 			timeLeft = timeLeft - 1
 
 			if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.WeedProcessing2.coords, false) > 4 then
-				TriggerServerEvent('xd_drugs_weed:cancelProcmet')
+				TriggerServerEvent('drugs:cancelProcmet')
 				break
 			end
 		end
@@ -697,7 +724,7 @@ function Processweed3d2()  -- simple animations to loop while process is taking 
 	--LoadDict('amb@medic@standing@tendtodead@exit')
 	--TaskPlayAnim(PlayerPedId(), 'amb@medic@standing@tendtodead@exit', 'exit', 8.0, -8.0, -1, 1, 0.0, 0, 0, 0)
          
-	    TriggerServerEvent('xd_drugs_weed:metprocess2') -- Done
+	    TriggerServerEvent('drugs:metprocess2') -- Done
 
 		local timeLeft = Config.Delays.WeedProcessing3 / 5000
 
@@ -706,7 +733,7 @@ function Processweed3d2()  -- simple animations to loop while process is taking 
 			timeLeft = timeLeft - 1
 
 			if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.WeedProcessing3.coords, false) > 4 then
-				TriggerServerEvent('xd_drugs_weed:cancelProcmet')
+				TriggerServerEvent('drugs:cancelProcmet')
 				break
 			end
 		end
@@ -726,7 +753,7 @@ end
 
 
 
-CreateThread(function() --- check that makes sure you have the materials needed to process
+CreateThread(function() --Check that makes sure you have the materials needed to process
 	
 	while true do
 		Wait(0)
@@ -738,7 +765,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 
 			
 			if not isProcessing2 then
-				DrawText3D(Config.CircleZones.DrugDealer.coords.x, Config.CircleZones.DrugDealer.coords.y, Config.CircleZones.DrugDealer.coords.z, 'Press ~g~[ E ]~w~ to Sell Meth')
+				DrawText3D(Config.CircleZones.DrugDealer.coords.x, Config.CircleZones.DrugDealer.coords.y, Config.CircleZones.DrugDealer.coords.z, 'Press ~r~[ E ]~w~ to Sell Meth')
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing2 then
@@ -763,11 +790,11 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 				if (hasWeed2) then
 					SellDrug3()
 				elseif (hasWeed2) then
-					QBCore.Functions.Notify('You dont have blue_meth.', 'error')
+					QBCore.Functions.Notify('You dont have any blue meth.', 'error')
 				elseif (hasBag2) then
-					QBCore.Functions.Notify('You dont have blue_meth.', 'error')
+					QBCore.Functions.Notify('You dont have any blue meth.', 'error')
 				else
-					QBCore.Functions.Notify('You dont have blue_meth.', 'error')
+					QBCore.Functions.Notify('You dont have any blue meth.', 'error')
 				end
 			end
 		else
@@ -776,7 +803,7 @@ CreateThread(function() --- check that makes sure you have the materials needed 
 	end
 end)
 
-function SellDrug3()  -- simple animations to loop while process is taking place
+function SellDrug3()  --Simple animations to loop while process is taking place
 	isProcessing2 = true
 	local playerPed = PlayerPedId()
 
@@ -799,7 +826,7 @@ function SellDrug3()  -- simple animations to loop while process is taking place
 	  LoadDict('amb@medic@standing@tendtodead@exit')
 	  TaskPlayAnim(PlayerPedId(), 'amb@medic@standing@tendtodead@exit', 'exit', 8.0, -8.0, -1, 1, 0.0, 0, 0, 0)
 
-	  TriggerServerEvent('xd_drugs_weed:sellmeth')
+	  TriggerServerEvent('drugs:sellmeth')
 		local timeLeft = Config.Delays.WeedProcessing / 30000
 
 		while timeLeft > 0 do
@@ -807,7 +834,6 @@ function SellDrug3()  -- simple animations to loop while process is taking place
 			timeLeft = timeLeft - 1
 
 			if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.WeedProcessing.coords, false) > 4 then
-				--TriggerServerEvent('xd_drugs_weed:cancelProcessing2d')
 				ClearPedTasks(PlayerPedId())
                  DeleteEntity(prop)
 				break
@@ -831,22 +857,17 @@ end
 CreateThread(function()
     while true do
         Wait(0)
-        --Local
 
         local plyCoords = GetEntityCoords(PlayerPedId(), false)
-        ---local distanza marker 1----------------------
+        --local distance marker 1
         local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, sellX4, sellY4, sellZ4)
-      
-        ---end local distanza marker 1------------------
        
         local vehicled = GetVehiclePedIsIn(PlayerPedId(), true)
         local playerPeds = PlayerPedId()
 
-        --Marker
-
 		if dist <= 10.0 then
 			DrawMarker(27, sellX4, sellY4, sellZ4-0.96, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 255, 255, 255, 200, 0, 0, 0, 0)
-            --DrawMarker(20, sellX4, sellY4, sellZ4 + 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.7, 0.2, 0.2, 15, 255, 55, 255, true, false, false, true, false, false, false)
+            
         end
             
 
@@ -855,14 +876,11 @@ CreateThread(function()
 
             --Checks if client is in the vehicle
 		    if GetPedInVehicleSeat(vehicled, -1) == PlayerPedId() then
-              --Checks if your in the vehicle
             else
-                --If its correct it runs
 
-                --Drawing the text
                 DrawText3D2(sellX4, sellY4, sellZ4+0.1,'~g~[E]~w~ Sodium Hidroxyde')
                 
-                -----------Press E
+                --Controls the key press (E)
                 if IsControlJustPressed(0, Keys['E']) then 
 
                 --Controls the xp
@@ -872,25 +890,21 @@ CreateThread(function()
 				--Checks if you have the right amount if xp points
                
                          --check if I have the item
-                                        QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result2)
-                                        hasBagd7 = result2
-                                        s1d7 = true
-                                        end, 'plastic_baggy')
-                                        while(not s1d7) do
-                                        Wait(100)
-                                        end
+                QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result2)
+                hasBagd7 = result2
+                s1d7 = true
+                end, 'plastic_baggy')
+                while(not s1d7) do
+                Wait(100)
+            end
                                         
-                                                  ----Checks if you have the right items
-                                                    if (hasBagd7) then
-                                                          --Starts
-                                                          procOn()
-                                  
-                                                    else
-                                                      QBCore.Functions.Notify('you don\'t have plastic_baggy', 'error')
-                                                    end
-                      
-                        
-
+                        --Checks if you have the right items
+                        if (hasBagd7) then
+                            --Starts
+                        procOn()        
+                    	else
+                            QBCore.Functions.Notify('you don\'t have enough plastic bags', 'error')
+                        end
                 end	
             end
 		end	
@@ -947,20 +961,4 @@ function hintToDisplay(text)
 	SetTextComponentFormat("STRING")
 	AddTextComponentString(text)
 	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-end
-
-function DrawText3D2(x, y, z, text)
-  
-    local onScreen,_x,_y=World3dToScreen2d(x, y, z)
-    local px,py,pz=table.unpack(GetGameplayCamCoords())
-    SetTextScale(0.35, 0.35)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(1)
-    AddTextComponentString(text)
-    DrawText(_x,_y)
-    local factor = (string.len(text)) / 370
-    DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 41, 11, 41, 90)
 end
