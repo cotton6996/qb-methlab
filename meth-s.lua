@@ -156,7 +156,7 @@ RegisterServerEvent('drugs:cancelProcmet', function()
 	CancelProcessing(source)
 end)
 
-AddEventHandler('QBCore_:playerDropped', function(playerId, reason)
+AddEventHandler('playerDropped', function(playerId, reason)
 	CancelProcessing(playerId)
 end)
 
