@@ -2,9 +2,8 @@
 Free to use methlab made with QBCore
 
 
-Do not repost with permission.
-
-Contact 90zPeaky#1990 if you have any problems.
+Do not repost without permission.
+This is outdated by a few years, do NOT use.
 
 This resource is getting updated often so don't be afraid to dm me if you ever need help with anything releated to the resource.
 
